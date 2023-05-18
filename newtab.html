@@ -1,149 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icon16.png" type="image/icon type">
-    <title>New Tab</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="clock.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="star.css">
-    <link rel="stylesheet" href="wallpaper.css">
-    <link rel="stylesheet" href="todo.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icon16.png" type="image/icon type">
+  <title>New Tab</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="clock.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="star.css">
+  <link rel="stylesheet" href="wallpaper.css">
+  <link rel="stylesheet" href="todo.css">
 
 
 </head>
+
 <body class="">
-    <div class="light" id="container">
-      <div class="ok">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-        </div>
-        <div class="contain">
-          <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" ID="closeNav">&times;</a>
-          </div>
-<!-- <a href="https://newtablivechat.epizy.com/" target="_blank"><span id="neww"><i class="fa fa-globe" style="font-size:36px"></i><span class="worldchat">chat Room(Beta)</span></span></a> -->
-            <div class="clock">
-                <figure>
-                    <div class="face top"><p class="digit" id="s"></p></div>
-                    <div class="face front"><p class="digit" id="m"></p></div>
-                    <div class="face left"><p class="digit" id="h"></p></div>
-                  </figure>
-            </div>
-            <div class="dropdownA" id="DropdownAjoke">
-                <div class="gallery_containerA">
-                  <div class="Joke">
-                    <div class="JokeText" id="JokeText">
-                        <p id="jokep"></p>  
-                        <button id="refresh_joke" class="refresh-joke"><i class="fa fa-refresh"></i></button>                 
-                      </div>
-                      
-                    <div class="joke_show_div"><button class="joke_show">Joke</button></div>
-                  </div>
-                </div>
-              </div>  
-              <!-- New teplate  -->
-              <div class="dropdownB" id="dropdownnews">
-                <div class="gallery_containerA">
-                  <div class="news">
-                    
-                    <div class="newsText" id="newsText">
-                          <p class="news_tab_content active" id="tab_1" data-tab-info></p>                      
-                          
-                          <p class="news_tab_content" id="tab_2" data-tab-info></p>
-
-                          <p class="news_tab_content" id="tab_3" data-tab-info></p>
-
-                        <div class="tabs_div">
-                            <span class="news_tab" id="world" data-tab-value="#tab_1" tabss>World</span>
-                            <!-- <span class="news_tab" id="science" data-tab-value="#tab_2" tabss>science</span>
-                            <span class="news_tab"id="sport" data-tab-value="#tab_3" tabss>sport</span> -->
-                      </div>
-                    </div>
-                    <div class="news_show_div"><button id="news_load" class="news_show">News</button></div>
-                  </div>
-                </div>
-              </div>
-            <!-- update will enable this feature  stay tune -->
-            <div class="tool">
-                
-                <div class="dropdown">
-                    <div class="flipswitch">
-                    <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs">
-                    <label class="flipswitch-label" for="fs">
-                        <div class="flipswitch-inner"></div>
-                        <div class="flipswitch-switch"></div>
-                    </label>
-                </div>
-                  <div class="dropdown-content">
-                    <div class="gallery_container">
-                      <span class="heading_img">Nature</span>
-                      <div class="gallery">
-                          <img src="tajA.jpg" id="imgA" alt="Taj">
-                        <div class="desc">Taj Mahal, India</div>
-                      </div>
-                      <div class="gallery">
-                          <img src="ww.png" id="imgB" alt="Night view">
-                        <div class="desc">Night Skyview</div>
-                      </div>
-                      <div class="gallery">
-                          <img src="imgA.png" id="imgC" alt="Night view">
-                        <div class="desc">Town view</div>
-                      </div>
-                      <div class="gallery">
-                          <img src="moon.jpg" id="imgD" alt="Night view">
-                        <div class="desc">Lake view</div>
-                      </div>
-                      <div class="gallery">
-                          <img src="early.jpg" id="imgE" alt="Night view">
-                        <div class="desc">Cold morning</div>
-                      </div>
-                      <div class="gallery">
-                          <img src="taj.jpg" id="imgF" alt="Night view">
-                        <div class="desc">Bright Taj</div>
-                      </div>
-                    </div>
-                  </div>            
-                            
-            </div>       
-            </div>
-            <div class="search_div">
-              <div class="search_con">
-                <form>
-                  <img id="logo" src="">
-                  <input class="form-control" autocomplete="off" id="myInput" spellcheck="off" name="q" type="text" placeholder="Search..">
-                  <button id="submit"><span data-tooltip="search" data-flow="bottom"><i class="fa fa-search"></i></span></button>
-                </form>
-                <div class="currentEngine">Google</div>
-                <div id="search-engine" name="search-engine">
-                    <div class="options" id="Bing">Bing</div>
-                    <div class="options" id="Google">Google</div>
-                    <div class="options" id="DuckDuckgo">DuckDuckgo</div>
-                  </div>
-              </div>
-            </div>
-            <div class="todo">
-              <div class="taskcontainer">
-                <h2>To-Do List</h2>
-                <div class="input-container">
-                  <input type="text" id="input-task" maxlength="35" placeholder="Enter a task...">
-                  <button class="taskbutton" id="add-task-btn">Add Task</button>
-                </div>
-                <ul id="task-list"></ul>
-              </div>
-            </div>
-        </div>
+  <div class="light" id="container">
+    <div class="ok">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
     </div>
-    <div id="message"></div>
+    <div class="contain">
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" ID="closeNav">&times;</a>
+      </div>
+      <!-- <a href="https://newtablivechat.epizy.com/" target="_blank"><span id="neww"><i class="fa fa-globe" style="font-size:36px"></i><span class="worldchat">chat Room(Beta)</span></span></a> -->
+      <div class="clock">
+        <figure>
+          <div class="face top">
+            <p class="digit" id="s"></p>
+          </div>
+          <div class="face front">
+            <p class="digit" id="m"></p>
+          </div>
+          <div class="face left">
+            <p class="digit" id="h"></p>
+          </div>
+        </figure>
+      </div>
+      <div class="dropdownA" id="DropdownAjoke">
+        <div class="gallery_containerA">
+          <div class="Joke">
+            <div class="JokeText" id="JokeText">
+              <p id="jokep"></p>
+              <button id="refresh_joke" class="refresh-joke"><i class="fa fa-refresh"></i></button>
+            </div>
+
+            <div class="joke_show_div"><button class="joke_show">Joke</button></div>
+          </div>
+        </div>
+      </div>
+      <!-- New teplate  -->
+      <div class="dropdownB" id="dropdownnews">
+        <div class="gallery_containerA">
+          <div class="news">
+
+            <div class="newsText" id="newsText">
+              <p class="news_tab_content active" id="tab_1" data-tab-info></p>
+
+              <p class="news_tab_content" id="tab_2" data-tab-info></p>
+
+              <p class="news_tab_content" id="tab_3" data-tab-info></p>
+
+              <div class="tabs_div">
+                <span class="news_tab" id="world" data-tab-value="#tab_1" tabss>World</span>
+                <!-- <span class="news_tab" id="science" data-tab-value="#tab_2" tabss>science</span>
+                            <span class="news_tab"id="sport" data-tab-value="#tab_3" tabss>sport</span> -->
+              </div>
+            </div>
+            <div class="news_show_div"><button id="news_load" class="news_show">News</button></div>
+          </div>
+        </div>
+      </div>
+      <!-- update will enable this feature  stay tune -->
+      <div class="tool">
+
+        <div class="dropdown">
+          <div class="flipswitch">
+            <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs">
+            <label class="flipswitch-label" for="fs">
+              <div class="flipswitch-inner"></div>
+              <div class="flipswitch-switch"></div>
+            </label>
+          </div>
+          <div class="dropdown-content">
+            <div class="gallery_container">
+              <span class="heading_img">Nature</span>
+              <div class="gallery">
+                <img src="tajA.jpg" id="imgA" alt="Taj">
+                <div class="desc">Taj Mahal, India</div>
+              </div>
+              <div class="gallery">
+                <img src="ww.png" id="imgB" alt="Night view">
+                <div class="desc">Night Skyview</div>
+              </div>
+              <div class="gallery">
+                <img src="imgA.png" id="imgC" alt="Night view">
+                <div class="desc">Town view</div>
+              </div>
+              <div class="gallery">
+                <img src="moon.jpg" id="imgD" alt="Night view">
+                <div class="desc">Lake view</div>
+              </div>
+              <div class="gallery">
+                <img src="early.jpg" id="imgE" alt="Night view">
+                <div class="desc">Cold morning</div>
+              </div>
+              <div class="gallery">
+                <img src="taj.jpg" id="imgF" alt="Night view">
+                <div class="desc">Bright Taj</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="search_div">
+        <div class="search_con">
+          <form>
+            <img id="logo" src="">
+            <input class="form-control" autocomplete="off" id="myInput" spellcheck="off" name="q" type="text"
+              placeholder="Search..">
+            <button id="submit"><span data-tooltip="search" data-flow="bottom"><i
+                  class="fa fa-search"></i></span></button>
+          </form>
+          <div class="currentEngine" id="currentEngine"><span id="CurrentEngineText">SearchE</span><br>
+            <div id="search-engine" name="search-engine">
+              <div class="options" id="bing">Bing</div>
+              <div class="options" id="google">Google</div>
+              <div class="options" id="duckDuckgo">DuckDuckgo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="todo">
+        <div class="taskcontainer">
+          <h2>To-Do List</h2>
+          <div class="input-container">
+            <input type="text" id="input-task" maxlength="35" placeholder="Enter a task...">
+            <button class="taskbutton" id="add-task-btn">Add Task</button>
+          </div>
+          <ul id="task-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="message"></div>
 </body>
 <script src="joke.js"></script>
 <script src="script.js"></script>
 <script src="todoo.js"></script>
 <script src="wallpaper.js"></script>
 <script src="search.js"></script>
+
 </html>

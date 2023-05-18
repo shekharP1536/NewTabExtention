@@ -36,77 +36,56 @@ setInterval(updateClock, 1000);
 
 
 
-
-
-/////
-//**************************************************************************** */
-//wallpaper 
-
-// var on = document.getElementById("fs");
-// on.addEventListener("input", change);
-// on.addEventListener("input", storage);
-// document.getElementById("imgA").addEventListener("click", function(){
-//   main.style.backgroundImage = "url('tajA.jpg')";
-//   // document.body.style.backgroundPosition = "top";
-
-//   vass = String("custom");
-//   localStorage.mode = vass;
-// });
-// function change(){
-//   main.style.backgroundImage = "";
-//   main.classList.toggle("dark");
-// }
-
-// function storage(){
-//   if(on.checked){
-//     ver = String("dark");
-    
-//     localStorage.mode = ver;
-//   }else{
-//     varr = String("light");
-
-//     localStorage.mode = varr; 
-//   }
-// }
-// document.addEventListener("DOMContentLoaded" , check)
-// function check(){
-//   if (localStorage.mode =="dark") {
-//     on.checked = "true";
-//     main.className += " dark"
-//     console.log("dark mode");
-//   }if (localStorage.mode =="custom") {
-//     main.style.backgroundImage = "url('tajA.jpg')";
-//     // main.style.backgroundPosition = "top";
-//   } else {
-//     console.log("light mode");
-//   }
-// }
-
-// Get the select element
-var select = document.getElementById("search-engine");
-
-// Add an event listener for the change event
-select.addEventListener("change", function() {
-  // Store the selected value in local storage
-  var searchEngine = select.value;
-  localStorage.setItem("search-engine", searchEngine);
-});
-
-// Add an event listener for the load event
-window.addEventListener("load", function() {
-  // Retrieve the stored value from local storage
-  var searchEngine = localStorage.getItem("search-engine");
-  if (searchEngine == null) {
+window.addEventListener("load", SetEngine);
+function SetEngine() {
+  console.log("newEngine");
+  var engine = localStorage.getItem("Engine")
+  if (engine==null ) {
+    console.log("what is new man");
     localStorage.setItem("search-engine", "https://www.google.com/search");
-    var searchEngine = localStorage.getItem("search-engine");
-    select.select[0];
-  }if (searchEngine ="https://www.bing.com/search") {
-    select.select[1];
-  } else {
-    
+    localStorage.setItem("Engine" , "Google");
   }
+  var Engine = document.getElementById("CurrentEngineText");
+  var EngineValue = localStorage.getItem("Engine");
+  console.log(EngineValue);
+  console.log(Engine);
+  Engine.innerHTML = EngineValue;
+}
 
+// Add an event listener for the change event of search Engine
+var bing = document.getElementById("bing");
+bing.addEventListener("click",function bing() {
+// Retrieve the stored value from local storage
+var searchEngine = localStorage.getItem("search-engine");
+localStorage.setItem("search-engine", "https://www.bing.com/search");
+localStorage.setItem("Engine" , "Bing");
+SetEngine();
+showMessage("Bing is now your search Engine")
 });
+
+
+// For Google 
+var google = document.getElementById("google");
+google.addEventListener("click",function google() {
+// Retrieve the stored value from local storage
+var searchEngine = localStorage.getItem("search-engine");
+localStorage.setItem("search-engine", "https://www.google.com/search");
+localStorage.setItem("Engine" , "Google");
+SetEngine();
+showMessage("Google is now your search Engine")
+});
+
+var duck = document.getElementById("duckDuckgo");
+duck.addEventListener("click",function duck() {
+// Retrieve the stored value from local storage
+var searchEngine = localStorage.getItem("search-engine");
+localStorage.setItem("search-engine", "https://duckduckgo.com/?q=");
+localStorage.setItem("Engine" , "DuckDuckGo");
+SetEngine();
+showMessage("DuckDuckGo is now your search Engine")
+})
+
+
 
 // Get the form element
 var form = document.querySelector("form");
