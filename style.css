@@ -69,12 +69,38 @@
     top:50px;
 }
 #search-engine{
+  background-color: #d4d1d156;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  margin: auto;
   padding: 8px;
   font-size: 14px;
 }
-option{
-  font-size: 16px;
-  padding: 10px;
+.options{
+  font-size: 18px;
+  padding: 5px;
+  margin: 3px;
+  /* border: 1px solid#000000; */
+  border-radius: 4px;
+  background-color: #f1f1f1a8;
+  cursor: pointer;
+}
+.options:hover{
+  background-color: white;
+}
+.currentEngine{
+  padding: 3px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  /* margin: 2px; */
+  background-color: rgba(255, 255, 255, 0.753);
+  width: fit-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .search_con button {
     position: relative;
