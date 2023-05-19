@@ -79,7 +79,7 @@ var duck = document.getElementById("duckDuckgo");
 duck.addEventListener("click",function duck() {
 // Retrieve the stored value from local storage
 var searchEngine = localStorage.getItem("search-engine");
-localStorage.setItem("search-engine", "https://duckduckgo.com/?q=");
+localStorage.setItem("search-engine", "https://duckduckgo.com/");
 localStorage.setItem("Engine" , "DuckDuckGo");
 SetEngine();
 showMessage("DuckDuckGo is now your search Engine")
