@@ -65,10 +65,6 @@ function showMessage(message) {
         task.lastCompleted = today.toISOString().slice(0, 10);
       }
 
-      const refreshDailyCheckbox = document.createElement('input');
-      refreshDailyCheckbox.type = 'checkbox';
-      refreshDailyCheckbox.classList.add("checkbox");
-      refreshDailyCheckbox.addEventListener('click', refreshDailyTasks);
 
       const deleteBtn = document.createElement('span');
       deleteBtn.innerHTML = '<i class="fa fa-trash"></i>';
@@ -107,7 +103,6 @@ function showMessage(message) {
       li.appendChild(importantBtn);
       li.appendChild(doneBtn);
       li.appendChild(editBtn);
-      li.appendChild(refreshDailyCheckbox);
   
       taskList.appendChild(li);
     });
@@ -195,21 +190,12 @@ function showMessage(message) {
   }
   
   function refreshDailyTasks() {
-    const currentDate = new Date();
-    tasks.forEach((task, index) => {
-      if (task.daily && task.refreshDate && task.refreshDate.getTime() <= currentDate.getTime()) {
-        task.done = false;
-        task.refreshDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
-      }else{
-        
-      }
-    });
+
   
     localStorage.setItem('tasks', JSON.stringify(tasks));
     displayTasks();
   }
-  
-  setInterval(refreshDailyTasks, 3600000); // run every hour to refresh daily tasks
+
   
   addTaskBtn.addEventListener('click', addTask);
   displayTasks();
