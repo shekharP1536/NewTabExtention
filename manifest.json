@@ -1,17 +1,19 @@
 {
-    "manifest_version" :3,
-    "name":"New Tab",
-    "version": "0.6",
+    "manifest_version": 3,
+    "name": "New Tab",
+    "version": "1",
     "author": "shekhar",
-    "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" },
-    "action":{
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "action": {
         "default_popup": "popup.html",
-        "default_icon" : "ok.png"
+        "default_icon": "ok.png"
     },
     "description": "Cool customized New Tab must try once with Todo, Clock , Wallpaper , Jokes , WorldNews",
-    "chrome_url_overrides":{
-        "newtab":"newtab.html"
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
     }
 }

@@ -16,19 +16,19 @@ function updateClock() {
   var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    // format date and time
-    hours = hours % 12 || 12;
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    date = date < 10 ? '0' + date : date;
+  // format date and time
+  hours = hours % 12 || 12;
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  date = date < 10 ? '0' + date : date;
 
-    // display date and time
-    var period = hours < 12 ? 'AM' : 'PM';
-    document.getElementById("s").innerHTML = hours ;
-    document.getElementById("m").innerHTML =  minutes;
-    document.getElementById("h").innerHTML = seconds;
-    // dateTime.innerHTML = dayNames[day] + ', ' + monthNames[month] + ' ' + date + ', ' + year;
+  // display date and time
+  var period = hours < 12 ? 'AM' : 'PM';
+  document.getElementById("s").innerHTML = hours;
+  document.getElementById("m").innerHTML = minutes;
+  document.getElementById("h").innerHTML = seconds;
+  // dateTime.innerHTML = dayNames[day] + ', ' + monthNames[month] + ' ' + date + ', ' + year;
 }
 
 updateClock();
@@ -40,10 +40,10 @@ window.addEventListener("load", SetEngine);
 function SetEngine() {
   console.log("newEngine");
   var engine = localStorage.getItem("Engine")
-  if (engine==null ) {
+  if (engine == null) {
     console.log("what is new man");
     localStorage.setItem("search-engine", "https://www.google.com/search");
-    localStorage.setItem("Engine" , "Google");
+    localStorage.setItem("Engine", "Google");
   }
   var Engine = document.getElementById("CurrentEngineText");
   var EngineValue = localStorage.getItem("Engine");
@@ -54,35 +54,35 @@ function SetEngine() {
 
 // Add an event listener for the change event of search Engine
 var bing = document.getElementById("bing");
-bing.addEventListener("click",function bing() {
-// Retrieve the stored value from local storage
-var searchEngine = localStorage.getItem("search-engine");
-localStorage.setItem("search-engine", "https://www.bing.com/search");
-localStorage.setItem("Engine" , "Bing");
-SetEngine();
-showMessage("Bing is now your search Engine")
+bing.addEventListener("click", function bing() {
+  // Retrieve the stored value from local storage
+  var searchEngine = localStorage.getItem("search-engine");
+  localStorage.setItem("search-engine", "https://www.bing.com/search");
+  localStorage.setItem("Engine", "Bing");
+  SetEngine();
+  showMessage("Bing is now your search Engine")
 });
 
 
 // For Google 
 var google = document.getElementById("google");
-google.addEventListener("click",function google() {
-// Retrieve the stored value from local storage
-var searchEngine = localStorage.getItem("search-engine");
-localStorage.setItem("search-engine", "https://www.google.com/search");
-localStorage.setItem("Engine" , "Google");
-SetEngine();
-showMessage("Google is now your search Engine")
+google.addEventListener("click", function google() {
+  // Retrieve the stored value from local storage
+  var searchEngine = localStorage.getItem("search-engine");
+  localStorage.setItem("search-engine", "https://www.google.com/search");
+  localStorage.setItem("Engine", "Google");
+  SetEngine();
+  showMessage("Google is now your search Engine")
 });
 
 var duck = document.getElementById("duckDuckgo");
-duck.addEventListener("click",function duck() {
-// Retrieve the stored value from local storage
-var searchEngine = localStorage.getItem("search-engine");
-localStorage.setItem("search-engine", "https://duckduckgo.com/");
-localStorage.setItem("Engine" , "DuckDuckGo");
-SetEngine();
-showMessage("DuckDuckGo is now your search Engine")
+duck.addEventListener("click", function duck() {
+  // Retrieve the stored value from local storage
+  var searchEngine = localStorage.getItem("search-engine");
+  localStorage.setItem("search-engine", "https://duckduckgo.com/");
+  localStorage.setItem("Engine", "DuckDuckGo");
+  SetEngine();
+  showMessage("DuckDuckGo is now your search Engine")
 })
 
 
@@ -91,7 +91,7 @@ showMessage("DuckDuckGo is now your search Engine")
 var form = document.querySelector("form");
 
 // Add an event listener for the submit event
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function (event) {
   // Prevent the default form action
   event.preventDefault();
 
@@ -104,19 +104,20 @@ form.addEventListener("submit", function(event) {
   window.location.href = searchEngine + "?q=" + input;
 });
 
-document.getElementById("refresh_joke").addEventListener('click',joke);
-function joke(){
+document.getElementById("refresh_joke").addEventListener('click', joke);
+function joke() {
   var jokeElement = document.getElementById("jokep");
   fetch("https://icanhazdadjoke.com/slack")
-  .then(data => data.json())
-  .then(jokedata => {
+    .then(data => data.json())
+    .then(jokedata => {
       var joketext = jokedata.attachments[0].text;
 
       console.log(joketext);
       console.log("jokefun");
-  
-      jokeElement.innerHTML = joketext;});
-  
+
+      jokeElement.innerHTML = joketext;
+    });
+
 }
 function openNav() {
   document.getElementById("mySidenav").classList.toggle("sidenavv");
@@ -126,4 +127,4 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 
-document.getElementById('closeNav').addEventListener("click",openNav);
+document.getElementById('closeNav').addEventListener("click", openNav);
