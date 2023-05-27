@@ -32,9 +32,22 @@ function updateClock() {
 }
 
 updateClock();
-setInterval(updateClock, 1000);
+// setInterval(updateClock, 1000);
+
+var input = document.getElementById("myInput");
+input.addEventListener("focusin",()=>{
+  document.getElementById("todoDIV").style.display = "none";
+  document.getElementById("recentsearch").style.display = "block";
+});
+input.addEventListener("focusout",()=>{
+  setTimeout(() => {
+    document.getElementById("todoDIV").style.display = "block";
+    document.getElementById("recentsearch").style.display = "none";
+  }, 500);
 
 
+
+})
 
 window.addEventListener("load", SetEngine);
 function SetEngine() {
@@ -60,7 +73,7 @@ bing.addEventListener("click", function bing() {
   localStorage.setItem("search-engine", "https://www.bing.com/search");
   localStorage.setItem("Engine", "Bing");
   SetEngine();
-  showMessage("Bing is now your search Engine")
+  showMessage("Bing is now your default search Engine")
 });
 
 
@@ -72,7 +85,7 @@ google.addEventListener("click", function google() {
   localStorage.setItem("search-engine", "https://www.google.com/search");
   localStorage.setItem("Engine", "Google");
   SetEngine();
-  showMessage("Google is now your search Engine")
+  showMessage("Google is now your default search Engine")
 });
 
 var duck = document.getElementById("duckDuckgo");
@@ -82,7 +95,7 @@ duck.addEventListener("click", function duck() {
   localStorage.setItem("search-engine", "https://duckduckgo.com/");
   localStorage.setItem("Engine", "DuckDuckGo");
   SetEngine();
-  showMessage("DuckDuckGo is now your search Engine")
+  showMessage("DuckDuckGo is now your default search Engine")
 })
 
 
@@ -119,12 +132,12 @@ function joke() {
     });
 
 }
-function openNav() {
-  document.getElementById("mySidenav").classList.toggle("sidenavv");
-}
+// function openNav() {
+//   document.getElementById("mySidenav").classList.toggle("sidenavv");
+// }
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
+// function closeNav() {
+//   document.getElementById("mySidenav").style.width = "0";
+// }
 
-document.getElementById('closeNav').addEventListener("click", openNav);
+// document.getElementById('closeNav').addEventListener("click", openNav);

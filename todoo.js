@@ -16,18 +16,18 @@ const addTaskBtn = document.getElementById('add-task-btn');
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 // Refresh tasks daily
-setInterval(function () {
-  const today = new Date().toLocaleDateString();
-  confirm.log("today");
-  tasks.forEach((task) => {
-    if (task.refresh && task.lastRefreshed != today) {
-      task.done = false;
-      task.lastRefreshed = today;
-    }
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  displayTasks();
-}, 24 * 60 * 60 * 1000);
+// setInterval(function () {
+//   const today = new Date().toLocaleDateString();
+//   confirm.log("today");
+//   tasks.forEach((task) => {
+//     if (task.refresh && task.lastRefreshed != today) {
+//       task.done = false;
+//       task.lastRefreshed = today;
+//     }
+//   });
+//   localStorage.setItem('tasks', JSON.stringify(tasks));
+//   displayTasks();
+// }, 24 * 60 * 60 * 1000);
 
 messagebox.addEventListener("click", function () {
   messagebox.style.display = "none";
@@ -107,7 +107,14 @@ function displayTasks() {
     taskList.appendChild(li);
   });
 }
-
+inputTask.addEventListener("keydown",function (e) {
+  if(e.code === "Enter"){
+    addTask();
+  }
+});
+taskList.addEventListener("click", ()=>{
+  toggleDone();
+})
 function addTask() {
   const title = inputTask.value.trim();
 
@@ -149,10 +156,10 @@ function toggleDone() {
   const index = parseInt(this.parentNode.getAttribute('data-index'));
   tasks[index].done = !tasks[index].done;
 
-  if (tasks[index].daily) {
-    const currentDate = new Date();
-    tasks[index].refreshDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
-  }
+  // if (tasks[index].daily) {
+  //   const currentDate = new Date();
+  //   tasks[index].refreshDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
+  // }
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
   displayTasks();

@@ -9,9 +9,9 @@
   <title>New Tab</title>
 
   <link rel="stylesheet" href="style.css">
+  <!-- <script src="https://kit.fontawesome.com/0b4aa1fa94.js" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="clock.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="star.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>  <link rel="stylesheet" href="star.css">
   <link rel="stylesheet" href="wallpaper.css">
   <link rel="stylesheet" href="todo.css">
 
@@ -26,10 +26,10 @@
       <div id="stars3"></div>
     </div>
     <div class="contain">
-      <div id="mySidenav" class="sidenav">
+      
+      <!-- <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" ID="closeNav">&times;</a>
-      </div>
-      <!-- <a href="https://newtablivechat.epizy.com/" target="_blank"><span id="neww"><i class="fa fa-globe" style="font-size:36px"></i><span class="worldchat">chat Room(Beta)</span></span></a> -->
+      </div> -->
       <div class="clock">
         <figure>
           <div class="face top">
@@ -121,30 +121,47 @@
         </div>
       </div>
       <div class="search_div">
+        
         <div class="search_con">
-          <form>
-            <img id="logo" src="">
-            <input class="form-control" autocomplete="off" id="myInput" spellcheck="off" name="q" type="text"
-              placeholder="Search..">
-            <button id="submit"><span data-tooltip="search" data-flow="bottom"><i
-                  class="fa fa-search"></i></span></button>
-          </form>
-          <div class="currentEngine" id="currentEngine"><span id="CurrentEngineText">SearchE</span><br>
-            <div id="search-engine" name="search-engine">
-              <div class="options" id="bing">Bing</div>
-              <div class="options" id="google">Google</div>
-              <div class="options" id="duckDuckgo">DuckDuckgo</div>
+          
+            <form id="searchform">
+              <div class="currentEngine" id="currentEngine">
+                <span id="CurrentEngineText"></span><br>
+                <div id="search-engine" name="search-engine">
+                    <div class="options" id="bing">Bing</div>
+                    <div class="options" id="google">Google</div>
+                    <div class="options" id="duckDuckgo">DuckDuckgo</div>
+                </div>
             </div>
-          </div>
+                <div class="input-container">
+                    <input class="form-control" autocomplete="off" value="" id="myInput" spellcheck="off" name="q"
+                        type="text" placeholder="Search..">
+                    <button id="submit"><span data-tooltip="search" data-flow="bottom"><i
+                                class="fa-solid fa-magnifying-glass"></i></span></button>
+                </div>
+            </form>
+            <div class="recentsearch" id="recentsearch">
+                <div class="recentsearchdiv" id="recentsearchdiv">
+                    <span class="recentSearchesHeading">Recent searches</span>
+                    </div>
+                </div>
+                <!-- <span class="trendingheading">Trending searches</span>
+                <div class="trending">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span class="trendword" id="trendword">IPL</span>
+                </div> -->
+            </div>
         </div>
-      </div>
+    </div>
+
+
     </div>
   </div>
 
-  <div class="todo">
+  <div class="todo" id="todoDIV">
     <div class="taskcontainer">
       <h2>To-Do List</h2>
-      <div class="input-container">
+      <div class="input-containerr">
         <input type="text" id="input-task" maxlength="35" placeholder="Enter a task...">
         <button class="taskbutton" id="add-task-btn">Add Task</button>
       </div>
