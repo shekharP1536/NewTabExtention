@@ -1,0 +1,184 @@
+<html>
+<head>
+  <style>
+    #container {
+      width: 500px;
+      height: 300px;
+      border: 1px solid #ccc;
+      margin: 20px auto;
+      overflow-y: scroll;
+    }
+
+    .task {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .word {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .time {
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn" onclick="createTask()">Create task</button>
+  <div id="container"></div>
+  <script>
+    // A function to generate a random word
+    function randomWord() {
+      var words = ["apple", "banana", "carrot", "dog", "elephant", "flower", "guitar", "hat", "icecream", "jacket"];
+      var index = Math.floor(Math.random() * words.length);
+      return words[index];
+    }
+
+    // A function to format the time difference
+    function formatTimeDiff(diff) {
+      var seconds = Math.floor(diff / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+      if (days > 0) {
+        return days + " day(s) ago";
+      } else if (hours > 0) {
+        return hours + " hour(s) ago";
+      } else if (minutes > 0) {
+        return minutes + " minute(s) ago";
+      } else {
+        return "just now";
+      }
+    }
+
+    // A function to create a new task div
+    function createTask() {
+      // Get the container element
+      var container = document.getElementById("container");
+      
+      // Create a new div element
+      var task = document.createElement("div");
+      
+      // Add the task class to the div
+      task.className = "task";
+      
+      // Create a span element for the word
+      var word = document.createElement("span");
+      
+      // Add the word class to the span
+      word.className = "word";
+      
+      // Set the text content of the span to a random word
+      word.textContent = randomWord();
+      
+      // Create a span element for the time
+      var time = document.createElement("span");
+      
+      // Add the time class to the span
+      time.className = "time";
+      
+      // Get the current date and time
+      var now = new Date();
+      
+      // Set the text content of the span to the formatted time difference
+      time.textContent = formatTimeDiff(now - now); // Initially zero
+      
+      // Append the word and time spans to the task div
+      task.appendChild(word);
+      task.appendChild(time);
+      
+      // Prepend the task div to the container element
+      container.prepend(task);
+      
+       // Create an object to store the task data
+       var taskData = {
+         word: word.textContent,
+         time: now.getTime()
+       };
+       
+       // Get the existing tasks from local storage or an empty array
+       var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+       
+       // Push the new task data to the array
+       tasks.push(taskData);
+       
+       // Save the updated array to local storage as JSON
+       localStorage.setItem("tasks", JSON.stringify(tasks));
+       
+       // Update the time difference every second
+       setInterval(function() {
+         // Get the current date and time
+         var now = new Date();
+         
+         // Set the text content of the span to the formatted time difference
+         time.textContent = formatTimeDiff(now - taskData.time); 
+         }, 10000);
+     }
+     
+     // A function to load the tasks from local storage and display them
+     function loadTasks() {
+       // Get the container element
+       var container = document.getElementById("container");
+       
+       // Get the existing tasks from local storage or an empty array
+       var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+       
+       // Loop through each task in reverse order
+       for (var i = tasks.length - 1; i >= 0; i--) {
+         // Get the task data
+         var taskData = tasks[i];
+         
+         // Create a new div element
+         var task = document.createElement("div");
+         
+         // Add the task class to the div
+         task.className = "task";
+         
+         // Create a span element for the word
+         var word = document.createElement("span");
+         
+         // Add the word class to the span
+         word.className = "word";
+         
+         // Set the text content of the span to the word from the task data
+         word.textContent = taskData.word;
+         
+         // Create a span element for the time
+         var time = document.createElement("span");
+         
+         // Add the time class to the span
+         time.className = "time";
+         
+         // Get the current date and time
+         var now = new Date();
+         
+         // Set the text content of the span to the formatted time difference
+         time.textContent = formatTimeDiff(now - taskData.time);
+         
+         // Append the word and time spans to the task div
+         task.appendChild(word);
+         task.appendChild(time);
+         
+         // Append the task div to the container element
+         container.appendChild(task);
+         
+          // Update the time difference every second
+          setInterval(function() {
+            // Get the current date and time
+            var now = new Date();
+            
+            // Set the text content of the span to the formatted time difference
+            time.textContent = formatTimeDiff(now - taskData.time); 
+            }, 10000);
+       }
+     }
+     
+     // Call the loadTasks function when the page loads
+     window.onload = loadTasks;
+  </script>
+</body>
+</html>

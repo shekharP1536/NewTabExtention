@@ -2,7 +2,7 @@ var inputform = document.getElementById("searchform");
 var recentsearch = JSON.parse(localStorage.getItem('recentsearches')) || [];
 localStorage.setItem('recentsearches', JSON.stringify(recentsearch));
 
-var lastFive = recentsearch.slice(-7);
+var lastFive = recentsearch.slice(-10);
 displaysearches(lastFive);
 // displaysearches(searchesArray)
 inputform.addEventListener("submit", addsearch);
@@ -28,7 +28,7 @@ function addsearch(e) {
 
         localStorage.setItem('recentsearches', JSON.stringify(recentsearch));
 
-        var lastFive = recentsearch.slice(-5);
+        var lastFive = recentsearch.slice(-10);
         displaysearches(lastFive);
     }
 }

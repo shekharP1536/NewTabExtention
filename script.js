@@ -32,7 +32,7 @@ function updateClock() {
 }
 
 updateClock();
-// setInterval(updateClock, 1000);
+setInterval(updateClock, 1000);
 
 var input = document.getElementById("myInput");
 input.addEventListener("focusin",()=>{
